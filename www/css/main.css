@@ -1,0 +1,16 @@
+ul{
+    list-style: none;
+}
+
+nav ul{
+    display: flex;
+}
+
+nav li{
+    margin-right: 2rem;
+}
+
+header, main, footer{
+    max-width: 90rem;
+    margin: 4rem auto;
+}

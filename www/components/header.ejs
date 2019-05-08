@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"> 
+        <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css"> 
+        <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+        <link rel="stylesheet" href="./css/main.css">
+        <title>Accueil</title>
+    </head>
+    <body>
+        <header>
+            <h1 id="titrepage"></h1>
+            <!-- 
+                To check if user is connected, try this:
+                - 
+            -->
+     
+            <nav>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <!-- 
+                        You need to check if the user is connected to display 
+                        or not those links
+                        - https://gist.github.com/DWS-paris/30ccb1df09b0acaa2ca9f587af7be952
+                    -->
+                    <% if( connectedUser ==0){ %>
+                        <li id='connexion'><a href="/login">Connnexion</a></li>
+                        <% }%>
+                    <% if(connectedUser!=0){ %>
+                        <li id='moncompte'><a href="/me">Mon compte</a></li>
+                         <li id='deco'><a href = "/deconnexion">Se déconnecter</a></li>
+                    <% } %>
+                   
+                    
+                </ul>
+            </nav>
+        </header>
+       
+
+     

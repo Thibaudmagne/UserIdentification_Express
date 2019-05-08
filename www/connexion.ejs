@@ -1,0 +1,54 @@
+<% include ./components/header.ejs %>
+
+<main>
+   <% include ./components/form-uti.ejs %>
+</main>
+
+
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
+
+
+      let titre = document.querySelector('#titrepage').innerHTML = "Connexion";
+      const formSubmit = () => {
+
+
+         const sendLogin = (event) => {
+            var erreur = document.querySelector('#erreur')
+            var password = document.querySelector('#password').value
+            var email = document.querySelector('#email').value
+
+            event.preventDefault();
+            fetch('/loginform', {
+                  method: 'POST',
+                  headers: {
+                     'Accept': 'application/json',
+                     'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                     emai: email,
+                     pass: password
+                  })
+               })
+
+               .then(response => response.json())
+               .then(json => {
+                  if (json.test == 2)
+                     erreur.innerHTML = "mauvais mot de passe ou mauvaise email"
+                  else
+                     window.location = "http://localhost:9898";
+               })
+               .catch(error => console.error(error));
+
+         }
+         document.querySelector('form').addEventListener('submit', sendLogin);
+      }
+
+
+
+      formSubmit();
+
+
+   })
+</script>
+<% include ./components/footer.ejs %>
